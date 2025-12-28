@@ -277,8 +277,15 @@ pub fn ex13() {
     jobs.push((5, "Watch some YouTube"));
     jobs.push((70, "Tell your team members thanks for always working hard"));
     jobs.push((30, "Plan who to hire next for the team"));
+    /* Currently, the for loop is iterating over the BinaryHeap directly
+
     for (_, job) in jobs {
         println!("You need to: {job}");
+    }
+    */
+    // Instead, we should pop items off the heap to get them in priority order
+    while let Some((priority, job)) = jobs.pop() {
+        println!("With priority {priority}, you need to: {job}");
     }
 }
 pub fn ex14() {
